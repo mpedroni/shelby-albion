@@ -1,7 +1,9 @@
-import Vue from 'vue';
-import Vuetify from 'vuetify';
-import 'vuetify/dist/vuetify.min.css';
-import pt from 'vuetify/src/locale/pt';
+import Vue from "vue";
+import Vuetify from "vuetify";
+import "vuetify/dist/vuetify.min.css";
+import pt from "vuetify/src/locale/pt";
+
+import colors from "vuetify/lib/util/colors";
 
 Vue.use(Vuetify);
 
@@ -9,18 +11,29 @@ export default new Vuetify({
   theme: {
     themes: {
       light: {
-        primary: '#ee44aa',
-        secondary: '#424242',
-        accent: '#82B1FF',
-        error: '#FF5252',
-        info: '#2196F3',
-        success: '#4CAF50',
-        warning: '#FFC107',
+        primary: colors.red.base,
+        secondary: "#424242",
+        accent: "#82B1FF",
+        error: "#FF5252",
+        info: "#2196F3",
+        success: "#4CAF50",
+        warning: "#FFC107",
+        background: colors.shades.white,
+      },
+      dark: {
+        primary: colors.red.base,
+        secondary: "#424242",
+        accent: "#82B1FF",
+        error: "#FF5252",
+        info: "#2196F3",
+        success: "#4CAF50",
+        warning: "#FFC107",
+        background: colors.blueGrey.darken4,
       },
     },
   },
   lang: {
     locales: { pt },
-    current: 'pt',
+    current: "pt",
   },
 });
