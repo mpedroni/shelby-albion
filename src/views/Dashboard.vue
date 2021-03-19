@@ -1,13 +1,18 @@
 <template>
-  <v-container>
+  <TheContainer>
     <h1 class="primary--text">dashboard</h1>
-  </v-container>
+  </TheContainer>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import Component from 'vue-class-component';
+import { Component, Vue } from 'vue-property-decorator';
 
-@Component
+import TheContainer from '@/components/TheContainer.vue';
+
+@Component({
+  components: {
+    TheContainer,
+  },
+})
 export default class Dashboard extends Vue {}
 </script>
