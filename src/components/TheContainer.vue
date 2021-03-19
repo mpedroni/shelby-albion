@@ -8,7 +8,7 @@
 import { Component, Vue } from 'vue-property-decorator';
 
 @Component({
-  name: 'the-container',
+  name: 'TheContainer',
 })
 export default class TheContainer extends Vue {}
 </script>

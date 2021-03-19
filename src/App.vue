@@ -1,16 +1,13 @@
 <template>
   <v-app :style="`background: ${getBackGroundColor}`" dark>
-    <v-app-bar app elevation="0" color="transparent">
-      <v-icon color="primary">mdi-box-cutter</v-icon>
-      <span class="primary--text font-weight-bold"> shelby </span>
-    </v-app-bar>
+    <TheAppBar />
 
     <v-main>
       <router-view />
     </v-main>
 
     <v-footer color="transparent">
-      <v-row justify="center">
+      <v-row justify="center" class="ma-0 py-1">
         <v-col cols="auto"> created by @mpedroni </v-col>
       </v-row>
     </v-footer>
@@ -21,8 +18,13 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 
+import TheAppBar from '@/components/TheAppBar.vue';
+
 @Component({
   name: 'app',
+  components: {
+    TheAppBar,
+  },
 })
 export default class App extends Vue {
   get getBackGroundColor() {
