@@ -1,8 +1,8 @@
 <template>
-  <v-app :style="`background: ${getBackGroundColor}`" dark>
+  <v-app>
     <TheAppBar />
 
-    <v-main>
+    <v-main class="background">
       <router-view />
     </v-main>
 
@@ -24,11 +24,5 @@ import TheFooter from '@/components/TheFooter.vue';
     TheFooter,
   },
 })
-export default class App extends Vue {
-  get getBackGroundColor() {
-    return this.$vuetify.theme.dark
-      ? this.$vuetify.theme.themes.dark.background
-      : this.$vuetify.theme.themes.light.background;
-  }
-}
+export default class App extends Vue {}
 </script>
