@@ -6,11 +6,7 @@
       <router-view />
     </v-main>
 
-    <v-footer color="transparent">
-      <v-row justify="center" class="ma-0 py-1">
-        <v-col cols="auto"> created by @mpedroni </v-col>
-      </v-row>
-    </v-footer>
+    <TheFooter />
   </v-app>
 </template>
 
@@ -19,11 +15,13 @@ import Vue from 'vue';
 import Component from 'vue-class-component';
 
 import TheAppBar from '@/components/TheAppBar.vue';
+import TheFooter from '@/components/TheFooter.vue';
 
 @Component({
   name: 'app',
   components: {
     TheAppBar,
+    TheFooter,
   },
 })
 export default class App extends Vue {
