@@ -1,11 +1,9 @@
 <template>
-  <TheContainer style="border: solid 1px red">
+  <TheContainer>
     <v-row>
-      <v-col v-for="craft in crafts" :key="craft.id" cols="12" sm="6" md="4">
-        <v-card color="primary" flat class="background px-5 my-3">
-          <v-row>
-            <v-col> shazam</v-col>
-          </v-row>
+      <v-col v-for="{ id, name } in crafts" :key="id" cols="12" class="[]" sm="6" md="4">
+        <v-card color="primary" class="background lighten-1" hover rounded :to="`crafts/${id}`">
+          <v-card-title>{{ name }}</v-card-title>
         </v-card>
       </v-col>
     </v-row>
@@ -26,17 +24,17 @@ import Craft from '@/types/Craft';
   },
 })
 export default class Dashboard extends Vue {
-  private crafts: Array<Craft> = [
+  crafts: Array<Craft> = [
     {
-      id: 'T5_GARRA_LIGEIRA',
+      id: 1,
       name: 'Garra-Ligeira',
     },
     {
-      id: 'T3_CAVALIN',
+      id: 2,
       name: 'Cavalo de Montar do Iniciante',
     },
     {
-      id: 'T7_URSO',
+      id: 3,
       name: 'Cavalo de Montar do Iniciante',
     },
   ];
