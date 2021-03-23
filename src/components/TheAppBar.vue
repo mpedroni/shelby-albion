@@ -26,4 +26,3 @@ import { Component } from 'vue-property-decorator';
 })
 export default class TheAppBar extends Vue {}
 </script>
-"]
