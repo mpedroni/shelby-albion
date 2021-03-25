@@ -1,7 +1,10 @@
+import Item from '@/types/Item';
 import Profit from '@/types/Profit';
 
 type Craft = {
   id: number;
+
+  item: Item;
 
   name: string;
 
