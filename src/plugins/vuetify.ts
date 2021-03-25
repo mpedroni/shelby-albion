@@ -19,7 +19,7 @@ export default new Vuetify({
         info: '#2196F3',
         success: '#4CAF50',
         warning: '#FFC107',
-        background: colors.shades.white,
+        background: colors.grey.lighten5,
       },
       dark: {
         primary: colors.red.base,
