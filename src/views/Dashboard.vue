@@ -2,7 +2,7 @@
   <TheContainer>
     <v-row>
       <v-col
-        v-for="{ id, name, dailyProfit } in crafts"
+        v-for="{ id, name, dailyProfit, item } in crafts"
         :key="id"
         cols="12"
         class="[]"
@@ -11,10 +11,14 @@
       >
         <v-card color="primary" class="background lighten-1" hover rounded :to="`crafts/${id}`">
           <v-card-title>
-            <v-avatar>
-              <v-img src="../assets/T7_FISH_FRESHWATER_FOREST_RARE.webp" />
+            <v-avatar tile>
+              <v-img
+                :src="`https://render.albiononline.com/v1/item/${item.id}@${item.enchantmentLevel}.png`"
+              />
             </v-avatar>
-            {{ name }}
+            <span>
+              {{ name }}
+            </span>
           </v-card-title>
 
           <v-card-text>
@@ -53,30 +57,53 @@ export default class Dashboard extends Vue {
     {
       id: 1,
       item: {
-        id: '../assets/T7_FISH_FRESHWATER_FOREST_RARE.webp',
+        id: 'T7_FISH_FRESHWATER_FOREST_RARE',
         name: 'Enguia de Água Podre',
+        enchantmentLevel: 0,
       },
-      dailyProfit: -120000,
-      name: 'Garra-Ligeira',
+      dailyProfit: 120000,
+      name: 'Enguia de Água Podre',
     },
     {
       id: 2,
       item: {
-        id: 'T7_FISH_FRESHWATER_FOREST_RARE',
-        name: 'Enguia de Água Podre',
+        id: 'T5_MOUNT_COUGAR_KEEPER',
+        name: 'Garra Ligeira',
+        enchantmentLevel: 0,
       },
       dailyProfit: 425605.4,
-      name: 'Cavalo de Montar do Iniciante',
+      name: 'Garra Ligeira',
     },
     {
       id: 3,
       item: {
-        id: 'T7_FISH_FRESHWATER_FOREST_RARE',
-        name: 'Enguia de Água Podre',
+        id: 'T4_MOUNT_HORSE',
+        name: 'Cavalo de Montar do Adepto',
+        enchantmentLevel: 0,
       },
-      dailyProfit: 80000,
+      dailyProfit: -80000,
       name: 'Cavalo de Montar do Adepto',
     },
+    {
+      id: 4,
+      item: {
+        id: 'T8_MEAL_STEW_FISH',
+        name: 'Guisado de Enguia de Água Podre',
+        enchantmentLevel: 0,
+      },
+      dailyProfit: -80000,
+      name: 'Guisado de Enguia de Água Podre',
+    },
   ];
+
+  getItemIcon({ id }: Item) {
+    this.$http.get('item/icon', { params: { id } }).then(({ data }) => {
+      const reader = new FileReader();
+
+      reader.readAsBinaryString(data);
+
+      return reader.result;
+    });
+  }
 }
 </script>
