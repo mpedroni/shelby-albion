@@ -5,20 +5,44 @@
         v-for="{ id, name, dailyProfit, item } in crafts"
         :key="id"
         cols="12"
-        class="[]"
-        sm="6"
-        md="4"
+        sm="10"
+        md="auto"
       >
-        <v-card color="primary" class="background lighten-1" hover rounded :to="`crafts/${id}`">
+        <v-card
+          color="primary"
+          class="background lighten-1"
+          hover
+          rounded
+          :to="`crafts/${id}`"
+          min-width="350"
+          style="position: relative"
+        >
+          <v-btn
+            @click.prevent="() => log()"
+            depressed
+            fab
+            small
+            absolute
+            right
+            color="primary"
+            top
+            class="mr-n7 mt-2"
+          >
+            <v-icon small> mdi-delete </v-icon>
+          </v-btn>
+
           <v-card-title>
             <v-avatar tile>
               <v-img
                 :src="`https://render.albiononline.com/v1/item/${item.id}@${item.enchantmentLevel}.png`"
               />
             </v-avatar>
+
             <span>
               {{ name }}
             </span>
+
+            <v-spacer />
           </v-card-title>
 
           <v-card-text>
@@ -94,6 +118,26 @@ export default class Dashboard extends Vue {
       dailyProfit: -80000,
       name: 'Guisado de Enguia de Água Podre',
     },
+    {
+      id: 5,
+      item: {
+        id: 'T7_FISH_FRESHWATER_FOREST_RARE',
+        name: 'Enguia de Água Podre',
+        enchantmentLevel: 0,
+      },
+      dailyProfit: 120000,
+      name: 'Enguia de Água Podre',
+    },
+    {
+      id: 6,
+      item: {
+        id: 'T8_MEAL_STEW_FISH',
+        name: 'Guisado de Enguia de Água Podre',
+        enchantmentLevel: 3,
+      },
+      dailyProfit: -80000,
+      name: 'Guisado de Enguia de Água Podre',
+    },
   ];
 
   getItemIcon({ id }: Item) {
@@ -104,6 +148,10 @@ export default class Dashboard extends Vue {
 
       return reader.result;
     });
+  }
+
+  log() {
+    console.log('deletado');
   }
 }
 </script>
